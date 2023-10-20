@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ header{
+    background-color: rgb(241, 17, 17);
+    padding: 2rem;
+ }
+ .judul{
+    color: white;
+    text-align: center;
+ }
+ 
+ .author{
+    width: 850px;
+    margin: 10px auto;
+    background-color: rgb(241, 17, 17);
+    border-radius: 10px;
+    display: flex;
+ }
+ 
+ .author h1 {
+    text-align: start;
+    color: black;
+ }
+ 
+ 
+ .pembuat {
+    width: 750px;
+    border-radius: 10px;
+    margin: 30px auto;
+    background-color: rgb(246, 249, 250);
+    padding: 2rem;
+    color: black;
+ }
+
+h2 {
+   text-align: center;
+   padding: 20px;
+}
+
+ .Deskripsi{
+    width: 850px;
+    margin: 20px auto;
+    color: black;
+    border-radius: 20px;
+    padding: 2rem;
+    background-color: white;
+ }
+ .deskripsi h1{
+    color: black;
+    font-size:x-large ;
+ }
+ body{
+    overflow-y: scroll;
+    background-color:rgb(188, 188, 179);
+ }
+ footer{
+    background-color: rgb(241, 17, 17);
+    color:ghostwhite;
+    padding: 20px;
+    text-align: center;
+ }
+ 
+ 
