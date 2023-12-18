@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kakulator</title>
+</head>
+<body>
+    <p>Nama : Hilal Hamdani Nabil</p>
+    <p>NIM : 0110123076</p>
+    <p>Praktikum Javascript pw1</p>
+    <p>Mencari Luas Dan keliling Lingkaran</p><br>
+    <form id="formkalkulator">
+        <label for="diameter">Diameter:</label><br>
+        <input type="number" id="diameter" name="diameter" required><br>
+        <label for="area">Luas Lingkaran:</label><br>
+        <input type="text" id="area" name="area" readonly><br>
+        <label for="parameter">Keliling Lingkaran:</label><br>
+        <input type="text" id="parameter" name="parameter" readonly><br>
+   </form>
+   <script>
+           document.getElementById('formkalkulator').addEventListener('change', function(e) {
+            let diameter = e.target.value;
+            let radius = diameter / 2;
+  
+            let area = Math.PI * Math.pow(radius, 2);
+            document.getElementById('area').value = area.toFixed(2);
+  
+            let parameter = 2 * Math.PI * radius;
+            document.getElementById('parameter').value = parameter.toFixed(2);
+           });
+   </script>
+    
+</body>
+</html>
