@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Form Validasi</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <form id="myForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required maxlength="30">
+        <span id="namaError" class="error"></span><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span><br><br>
+
+        <label for="JamKeberangkatan">Jam Keberangkatan:</label>
+        <input type="time" id="JamKeberangkatan" name="JamKeberangkatan" required>
+        <span id="JamKeberangkatanError" class="error"></span><br><br>
+
+        <label for="nomorTiket">Nomor Tiket:</label>
+        <input type="number" id="nomorTiket" name="nomorTiket" min="1" max="10" required>
+        <span id="nomorTiketError" class="error"></span><br><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+        <div id="output"></div>
+
+    <script>
+        function validateForm() {
+        var name = document.getElementById("nama").value;
+        var email = document.getElementById("email").value;
+        var JamKeberangkatan = document.getElementById("JamKeberangkatan").value;
+        var nomorTiket = document.getElementById("nomorTiket").value;
+
+        var isValid = true;
+
+        // Validasi Nama
+        if (name.trim() === "") {
+            isValid = false;
+            document.getElementById("namaError").textContent = "Nama wajib diisi.";
+        } else if (name.length > 30) {
+            isValid = false;
+            document.getElementById("namaError").textContent = "Nama harus terdiri dari 30 karakter atau kurang.";
+        } else {
+            document.getElementById("namaError").textContent = "";
+        }
+
+        // Validasi Nama
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            isValid = false;
+            document.getElementById("emailError").textContent = "Format email salah.";
+        } else {
+            document.getElementById("emailError").textContent = "";
+        }
+
+        // Validasi Jam Keberangkatan
+        if (!JamKeberangkatan.match(/^([01]\d|2[0-3]):[0-5]\d$/)) {
+            isValid = false;
+            document.getElementById("JamKeberangkatanError").textContent = "Format waktu 24 jam tidak valid.";
+        } else {
+            document.getElementById("JamKeberangkatanError").textContent = "";
+        }
+
+        // Validasi Nomor Tiket
+        if (isNaN(nomorTiket) || nomorTiket < 1 || nomorTiket > 10) {
+            isValid = false;
+            document.getElementById("nomorTiketError").textContent = "Jumlah tiket harus antara 1 dan 10.";
+        } else {
+            document.getElementById("nomorTiketError").textContent = "";
+        }
+
+        if (isValid) {
+            // Display data
+            var output = document.getElementById("output");
+            output.textContent = "Nama: " + name + "\n" +
+                                "Email: " + email + "\n" +
+                                "Jam Keberangkatan: " + JamKeberangkatan + "\n" +
+                                "Nomor Tiket: " + nomorTiket;
+        }
+        }
+    </script>
+</body>
+</html>
